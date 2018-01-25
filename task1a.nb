@@ -1,2 +1,6 @@
-func[t_,r_,T_,K_,A_] = r * N[t] * (1-(N[t-T])/K)*((N[t]/A)-1)
-NDSolve[{N'[t] == func[t, 0.1, 0.1, 100, 20], N[0] == 50}, N, {t, 0, 100}]
+f[t_,r_,T_,K_,A_] = r * n[t] * (1-(n[t-T])/K)*((n[t]/A)-1)
+T = 0.1
+solution = NDSolve[{n'[t] == f[t, 0.1, T, 100, 20], n[0] == 50}, n, {t, 0, 100}]
+parplot = ParametricPlot[Evaluate[n[t] /.First[solution]], {t, 0, 100}, ImageSize -> Large]
+Export["hw1.jpg", parplot]
+
