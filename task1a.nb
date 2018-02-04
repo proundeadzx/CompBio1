@@ -3,5 +3,5 @@ f[t_,r_,T_,K_,A_] = r * n[t] * (1-n[t-T]/K)*(n[t]/A-1)
 For[T = 0.1, T <= 5, T = T + 0.1, 
 solution = NDSolve[{n'[t] == f[t, 0.1, T, 100, 20], n[0] == 50}, n, {t, 0, 100}];
 interf[t_] = Evaluate[n[t] /. First[solution]];
-graphics = Plot[interf[t], {t, 0, 100}, ImageSize -> Large, PlotLabel -> StringTemplate["T = ``"][T]];
-Export[StringTemplate["hw``.jpg"][IntegerString[Round[T/0.1], 10, 2]], graphics]]
+graphics = Plot[interf[t], {t, 0, 100}, ImageSize -> Large, PlotRange -> {{0,100}, {0,300}}, PlotLabel -> StringTemplate["T = ``"][T]];
+Export[StringTemplate["hw``.eps"][IntegerString[Round[T/0.1], 10, 2]], graphics]]
