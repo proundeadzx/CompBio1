@@ -1,0 +1,11 @@
+K = 1000
+r = 0.1
+b = 1
+xRange = 1000
+f[n_] = (r+1) * n/(1+(n/K)^b);
+plot = ListLogLogPlot[
+{NestList[f, 1, xRange], NestList[f, 2, xRange], NestList[f, 3, xRange], NestList[f, 10, xRange]},
+Joined -> True,
+PlotLegends -> {Subscript["N",0] == 1, Subscript["N", 0] == 2, Subscript["N", 0] == 3, Subscript["N",0] == 10}
+]
+Export["2.eps", plot]
