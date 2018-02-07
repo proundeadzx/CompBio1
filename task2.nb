@@ -11,7 +11,6 @@ b = 1
 xRange = 100
 NStar = 0
 f[n_] = (r+1) * n/(1+(n/K)^b);
-f2[n_] = NStar + (r+1) * (n-NStar);
 plot = ListLogLogPlot[
 {NestList[f, 1, xRange], NestList[f2, 1, xRange], NestList[f, 2, xRange], NestList[f2, 2, xRange], NestList[f, 3, xRange], NestList[f2, 3, xRange], NestList[f, 4, xRange], NestList[f2, 4, xRange]},
 Joined -> {False,True},
@@ -22,7 +21,7 @@ PlotLegends -> {Subscript["N",0] == 1, "", Subscript["N", 0] == 2, "", Subscript
 Export["2.eps", plot]
 
 NStar = K*r^(1/b)
-f3[n_] = ((NStar-n)/(r+1)) + NStar;
+f3[n_] = NStar + (1-(b*r/(r+1))) * (n-NStar);
 plot = ListLogLogPlot[
 {NestList[f, 1, xRange], NestList[f3, 1, xRange], NestList[f, 2, xRange], NestList[f3, 2, xRange], NestList[f, 3, xRange], NestList[f3, 3, xRange], NestList[f, 4, xRange], NestList[f3, 4, xRange]},
 Joined -> {False,True},
