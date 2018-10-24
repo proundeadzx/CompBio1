@@ -29,5 +29,5 @@ PlotStyle -> {{apple6[[1]]},{apple6[[1]]},{apple6[[2]]},{apple6[[2]]}, {apple6[[
 PlotRange -> {{1,100}, {1, 110}},
 PlotLegends -> {Subscript["N",0] == 1, "", Subscript["N", 0] == 2, "", Subscript["N",0] == 3, "", Subscript["N",0] == 10, ""}
 ]
-Export["2c.png", plot]
+Export["2c.eps", plot]
 
